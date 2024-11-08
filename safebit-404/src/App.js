@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Nav from "./components/Nav";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import Login from "./pages/login/Login";
+import Signup from "./pages/signup/Signup";
 
 function App() {
   let [isAuth, setIsAuth] = useState(false);
