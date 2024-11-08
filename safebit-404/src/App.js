@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styles from "./index.css"
 import Nav from "./components/Nav";
 import Login from "./pages/login/Login"
 import Signup from "./pages/signup/Signup";
@@ -10,7 +11,6 @@ const privateRouter = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
-    errorElement: <NotFoundPage />,
   },
 ]);
 const publicRouter = createBrowserRouter([

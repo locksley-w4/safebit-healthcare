@@ -1,0 +1,38 @@
+header.header{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+.logo{
+    display: flex;
+    object-fit: cover;
+    object-position: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.logo img{
+    max-width: 100%;
+}
+.headerText{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-weight: 550;
+    font-size: 1.2rem;
+}
+.headerText p {
+    margin: 5px 0;
+}
+.notiff{
+    display: flex;
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+}
+.logo img{
+    max-width: 100%;
+}
