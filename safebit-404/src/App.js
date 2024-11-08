@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Nav from "./components/Nav";
-import Login from "./components/Login";
+import Login from "./pages/login/Login"
 import Signup from "./components/Signup";
 import { createBrowserRouter, Router, RouterProvider } from "react-router-dom";
 import Main from "./pages/Main";
