@@ -1,4 +1,8 @@
 header.header{
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: aliceblue;
     padding: 10px;
     display: flex;
     align-items: center;

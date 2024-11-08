@@ -1,17 +1,14 @@
 import React from "react";
 import Header from "../components/ui/Header/Header";
-import Dashboard from "../components/Dashboard/Dashboard";
-// import RecipeTabs from "./components/RecipeTabs";
-// import RecipeList from "./components/RecipeList";
-// import TrendingRecipes from "./components/TrendingRecipes";
-// import BottomNavigation from "./components/BottomNavigation";
-// import styled from "styled-components";
+import Nav from "../components/ui/Nav/Nav";
+import { Outlet } from "react-router-dom";
 
 const Main = () => {
   return (
-    <main style={{fontFamily: "sans-serif"}}>
+    <main>
       <Header />
-      <Dashboard/>
+      <Outlet />
+      <Nav />
     </main>
   );
 };
