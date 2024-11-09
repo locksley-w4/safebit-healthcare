@@ -6,6 +6,8 @@ header.header{
     padding: 10px;
     display: flex;
     align-items: center;
+    /* on purpose */
+    display: none;
 }
 .logo{
     display: flex;

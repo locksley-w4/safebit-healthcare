@@ -1,3 +1,104 @@
-.profile {
-    
+.profile{
+    background-color: white;
+    padding: 10px;
+}
+.profile_top{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.profile_picture{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.profile_stats{
+    display: flex;
+    justify-content: center;
+    margin-top: -50px;
+}
+.stat{
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.stat_title {
+    margin-top:20px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 105px;
+}
+.stat_weight h4::after{
+    content: "";
+    position: absolute;
+    height: 80px;
+    width: 2px;
+    top: 0;
+    right: -15px;
+    background-color: #36622B;
+}
+.stat_height h4::after {
+    content: "";
+    position: absolute;
+    height: 80px;
+    top: 0;
+    width: 2px;
+    right: -15px;
+    background-color: #36622B;
+}
+.stat_title img {
+    width: 24px;
+    height: 24px;
+}
+.stat_title h4{
+    font-weight: 400;
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+
+.stat_title span{
+    font-size: 16px;
+}
+
+.sidebar {
+    padding: 20px;
+    border-right: 1px solid #ddd;
+}
+
+.sidebar h3 {
+    margin-top: 0;
+}
+
+.menu-section {
+    margin-bottom: 20px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+.menu-item img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.menu-text {
+    display: flex;
+    align-items: center;
 }

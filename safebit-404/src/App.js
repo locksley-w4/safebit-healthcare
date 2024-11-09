@@ -6,7 +6,7 @@ import { privateRouter, publicRouter } from "./components/router/router";
 const queryClient = new QueryClient();
 
 localStorage.setItem("isAuth", "true");
-localStorage.clear("isAuth");
+// localStorage.clear("isAuth");
 
 function App() {
   let [isAuth, setIsAuth] = useState(false);
