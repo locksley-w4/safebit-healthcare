@@ -6,20 +6,19 @@ import { getSeveralByCategory } from "../utilities/utils";
 
 const Homepage = () => {
   const [meals, setMeals] = useState({});
-
-  const { data: breakfastMeals } = useQuery({
+  const { data: breakfastMeals, status, error } = useQuery({
     queryFn: () => getSeveralByCategory(10, "Breakfast"),
     queryKey: ["breakfast"],
-    // onSuccess: (data) => {
-    //   setMeals((prevMeals) => ({ ...prevMeals, breakfast: data }));
-    // },
-    // onError: (error) => {
-    //   console.error("Error fetching breakfast meals:", error);
-    // },
   });
+
   useEffect(() => {
-    if(breakfastMeals) setMeals((prevMeals) => ({ ...prevMeals, breakfast: breakfastMeals }));
-  }, [breakfastMeals]);
+    if (status === "success" && breakfastMeals) {
+      setMeals((prevMeals) => ({ ...prevMeals, breakfast: breakfastMeals }));
+      console.log("Data loaded successfully:", breakfastMeals);
+    } else if (status === "error") {
+      console.error("Error fetching breakfast meals:", error);
+    }
+  }, [status, breakfastMeals, error]);
 
   return (
     <div>
