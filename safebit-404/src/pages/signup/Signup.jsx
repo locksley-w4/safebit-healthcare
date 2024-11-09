@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import SignupPage1 from "./Signup1";
 import SignupPage2 from "./Signup2";
 import "./signup.css";
+import { replace, useNavigate } from "react-router-dom";
 const Signup = () => {
+  const navigate = useNavigate();
   const [page, setPage] = useState(1);
   const [validationErrors, setValidationErrors] = useState({});
   const [formData, setFormData] = useState({
@@ -101,6 +103,10 @@ const Signup = () => {
     if (validatePage2()) {
       console.log(formData);
       localStorage.setItem("user", JSON.stringify(formData));
+      navigate("/", {
+        replace: true,
+      });
+      localStorage.setItem("isAuth", true);
     }
   };
 

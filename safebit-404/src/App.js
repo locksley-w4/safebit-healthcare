@@ -1,4 +1,4 @@
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { RouterProvider } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { privateRouter, publicRouter } from "./components/router/router";
@@ -11,8 +11,7 @@ const queryClient = new QueryClient({
   },
 });
 
-
-localStorage.setItem("isAuth", "true");
+// localStorage.setItem("isAuth", "true");
 // localStorage.clear("isAuth");
 
 function App() {
@@ -30,7 +29,7 @@ function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-          <RouterProvider router={isAuth ? privateRouter : publicRouter} />
+        <RouterProvider router={isAuth ? privateRouter : publicRouter} />
       </QueryClientProvider>
     </>
   );
