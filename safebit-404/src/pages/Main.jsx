@@ -16,6 +16,7 @@ localStorage.setItem(`user`, JSON.stringify({
   goals: ["lose-weight", "gain-mass"],
   diseases: ["diabetes", "tonzilit"]
 }));
+
 const Main = () => {
   return (
     <main>

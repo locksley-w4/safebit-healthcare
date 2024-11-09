@@ -7,14 +7,17 @@ export const getRandomMealList = async (length = 10) => {
     meal = meal[0];
     mealsList.push(meal);
   }
-  console.log(mealsList);
-
   return mealsList;
 };
 export const getSeveralByCategory = async (length = 10, category) => {
-  const mealsList = [];
   let meals = await MealsAPI.getByCategory(category);
-  meals = meals.meals?.slice(0, length - 1);
-  console.log(meals);
-  return mealsList;
+  meals = meals.meals?.slice(0, length);
+  return meals;
+};
+export const calcTotalCalories = async (meals) => {
+  const resolvedMeals = await Promise.all(
+    meals.map((meal) => MealsAPI.getMealData(meal.idMeal))
+  );
+
+  return resolvedMeals.reduce((acc, current) => acc + current.calories, 0);
 };

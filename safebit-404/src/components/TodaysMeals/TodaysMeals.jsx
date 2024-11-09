@@ -1,41 +1,21 @@
 import React, { useEffect } from "react";
 import "./TodaysMeals.css";
 import { useState } from "react";
+import { calcTotalCalories } from "../../utilities/utils";
 
 const TodaysMeals = ({ meals: _meals }) => {
   // const [breakfast, setBreakfast] = useState(null);
   const [meals, setMeals] = useState({});
-
   useEffect(() => {
     if (_meals) setMeals(_meals);
-    console.log(meals);
   }, [_meals]);
 
-  const mealsMapped = Object.keys(meals).map((key) => (
-    <section className="meal-section" key={key}>
-      <span className="meal-section__icon">
-        <img
-          src={require("../../assets/breakfast-icon.jpg")}
-          alt="Breakfast icon"
-        />
-      </span>
-      <div className="meal-menu">
-        <h3>Breakfast</h3>
-        {(Array.isArray(meals[key]) ? meals[key] : []).map((meal) => (
-          <div className="meal" key={meal.id}>
-            <span className="meal-section__icon">
-              <img src={meal.strMealThumb} alt="Breakfast icon" />
-            </span>
-          </div>
-        ))}
-      </div>
-    </section>
-  ));
-
-  return (
-    <div className="meals-container">
-      {mealsMapped}
-      {/* <section className="meal-section" id="today-braekfast">
+  const mealsMapped = Object.keys(meals).map((key) => {
+    // console.log(meals[key][0]);
+    // calcTotalCalories(meals[key]);
+    
+    return (
+      <section className="meal-section" key={key}>
         <span className="meal-section__icon">
           <img
             src={require("../../assets/breakfast-icon.jpg")}
@@ -44,13 +24,20 @@ const TodaysMeals = ({ meals: _meals }) => {
         </span>
         <div className="meal-menu">
           <h3>Breakfast</h3>
-          <p>{meals.breakfast.mealsList}</p>
-          <p>{meals.breakfast.mealsList}</p>
+          {meals[key].map((meal) => (
+            <div className="meal" key={meal.idMeal}>
+              <span className="meal-section__icon">
+                <img src={meal.strMealThumb} alt="Breakfast icon" />
+              </span>
+              <p>{meal.strMeal}</p>
+            </div>
+          ))}
         </div>
-      </section> */}
-      {}
-    </div>
-  );
+      </section>
+    );
+  });
+
+  return <div className="meals-container">{mealsMapped}</div>;
 };
 
 export default TodaysMeals;
