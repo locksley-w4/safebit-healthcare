@@ -25,3 +25,6 @@ nav .active {
   transform: scale(1.05, 1.05) translateY(-5px);
   color: rgb(25, 124, 108);
 }
+nav a:focus {
+    appearance: none;
+}

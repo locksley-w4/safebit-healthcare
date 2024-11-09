@@ -1,54 +1,10 @@
 import { useEffect, useState } from "react";
-import styles from "./index.css"
-import Nav from "./components/ui/Nav/Nav";
-import Login from "./pages/login/Login"
-import Signup from "./pages/signup/Signup";
-import { createBrowserRouter, Navigate, Router, RouterProvider } from "react-router-dom";
-import Main from "./pages/Main";
-import NotFoundPage from "./pages/NotFoundPage";
-import Homepage from "./pages/Homepage";
-import FavList from "./pages/FavList/FavList";
-import Recipes from "./pages/Recipes/Recipes";
-import Profile from "./pages/Profile/Profile";
+import { RouterProvider } from "react-router-dom";
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
+import { privateRouter, publicRouter } from "./components/router/router";
 
-const privateRouter = createBrowserRouter([
-  {
-    path: "/",
-    element: <Main />,
-    children: [
-      {
-        path: "/",
-        element: <Homepage />,
-      },
-      {
-        path: "/favlist",
-        element: <FavList />,
-      },
-      {
-        path: "/recipes",
-        element: <Recipes />,
-      },
-      {
-        path: "/profile",
-        element: <Profile />,
-      },
-      {
-        path: "*",
-        element: <Navigate to="/" replace/>,
-      },
-    ]
-  },
-]);
-const publicRouter = createBrowserRouter([
-  {
-    path: "*",
-    element: <Login />,
-  },
-  {
-    path: "/signup",
-    element: <Signup />,
-  },
-]);
+
+const queryClient = new QueryClient() 
 
 localStorage.setItem("isAuth", "true");
 // localStorage.clear("isAuth");

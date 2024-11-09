@@ -4,7 +4,8 @@
   padding: 15px;
   background-color: rgb(25, 124, 108);
   width: auto;
-  height: 35vh;
+  min-height: 35vh;
+  max-height: 55vh;
   border-radius: 15px;
   color: aliceblue;
   flex-wrap: wrap;
@@ -49,6 +50,9 @@ h2 {
   flex: 0 0 100%;
   position: relative;
   height: 100px;
+}
+.figures__total span{
+    font-size: 1rem;
 }
 strong {
     color: #C3AA4E;
