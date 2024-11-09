@@ -1,15 +1,43 @@
-import React from 'react'
-import "./TodaysMeals.css"
+import React, { useEffect } from "react";
+import "./TodaysMeals.css";
+import { useState } from "react";
+import { calcTotalCalories } from "../../utilities/utils";
 
-const TodaysMeals = () => {
-  return (
-    <div className='meals-container'>
-        <section className='meal-section'>
-            <span className="meal-section__icon"><img src={require("../../assets/breakfast-icon.jpg")} alt="Breakfast icon" /></span>
-            <div className="meal-menu"><h3>Breakfast</h3></div>
-        </section>
+const TodaysMeals = ({ meals: _meals }) => {
+  // const [breakfast, setBreakfast] = useState(null);
+  const [meals, setMeals] = useState({});
+  useEffect(() => {
+    if (_meals) setMeals(_meals);
+  }, [_meals]);
+
+  const mealsMapped = Object.keys(meals).map((key) => {
+    // console.log(meals[key][0]);
+    // calcTotalCalories(meals[key]);
+    
+    return (
+      <section className="meal-section" key={key}>
+        <span className="meal-section__icon">
+          <img
+            src={require("../../assets/breakfast-icon.jpg")}
+            alt="Breakfast icon"
+          />
+        </span>
+        <div className="meal-menu">
+          <h3>Breakfast</h3>
+          {meals[key].map((meal) => (
+            <div className="meal" key={meal.idMeal}>
+              <span className="meal-section__icon">
+                <img src={meal.strMealThumb} alt="Breakfast icon" />
+              </span>
+              <p>{meal.strMeal}</p>
+            </div>
+          ))}
         </div>
-  )
-}
+      </section>
+    );
+  });
 
-export default TodaysMeals
+  return <div className="meals-container">{mealsMapped}</div>;
+};
+
+export default TodaysMeals;
