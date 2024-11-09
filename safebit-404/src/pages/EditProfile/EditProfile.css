@@ -1,0 +1,17 @@
+.profile-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Adjust height as needed */
+}
+
+.profile-form {
+    /* Style the form itself */
+    width: 300px;
+    /* Adjust width as needed */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

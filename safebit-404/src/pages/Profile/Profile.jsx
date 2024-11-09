@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Profile.css";
 import profilePic from "../../assets/profile.jpg";
 import clappingHand from "../../assets/clapping.jpg";
@@ -6,7 +7,6 @@ import fire from "../../assets/Fire.jpg";
 import magicWand from "../../assets/Magic Wand.jpg";
 import settings from "../../assets/settings.jpg";
 import chat from "../../assets/chat.jpg";
-import envelope from "../../assets/Envelope.jpg";
 import right from "../../assets/right.jpg";
 import pencilLine from "../../assets/PencilLine.jpg";
 import carbonNotification from "../../assets/carbon_notification.jpg";
@@ -52,7 +52,9 @@ const Profile = () => {
         <div className="sidebar">
           <div className="menu-section">
             <h3>Account</h3>
-            <MenuItem icon={pencilLine} text="Edit Profile" />
+            <Link to="/edit-profile" replace>
+              <MenuItem icon={pencilLine} text="Edit Profile" />
+            </Link>
             <MenuItem icon={carbonNotification} text="Notification" />
           </div>
           <div className="menu-section">

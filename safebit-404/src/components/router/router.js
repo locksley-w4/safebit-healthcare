@@ -6,42 +6,48 @@ import Recipes from "../../pages/Recipes/Recipes";
 import Profile from "../../pages/Profile/Profile";
 import Login from "../../pages/login/Login";
 import Signup from "../../pages/signup/Signup";
+import EditProfile from "../../pages/EditProfile/EditProfile";
 
 export const privateRouter = createBrowserRouter([
-    {
-      path: "/",
-      element: <Main />,
-      children: [
-        {
-          path: "/",
-          element: <Homepage />,
-        },
-        {
-          path: "/favlist",
-          element: <FavList />,
-        },
-        {
-          path: "/recipes",
-          element: <Recipes />,
-        },
-        {
-          path: "/profile",
-          element: <Profile />,
-        },
-        {
-          path: "*",
-          element: <Navigate to="/" replace/>,
-        },
-      ]
-    },
-  ]);
+  {
+    path: "/",
+    element: <Main />,
+    children: [
+      {
+        path: "/",
+        element: <Homepage />,
+      },
+      {
+        path: "/favlist",
+        element: <FavList />,
+      },
+      {
+        path: "/recipes",
+        element: <Recipes />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
+        children: [],
+      },
+      {
+        path: "edit-profile",
+        element: <EditProfile />,
+      },
+      {
+        path: "*",
+        element: <Navigate to="/" replace />,
+      },
+    ],
+  },
+]);
 export const publicRouter = createBrowserRouter([
-    {
-      path: "*",
-      element: <Login />,
-    },
-    {
-      path: "/signup",
-      element: <Signup />,
-    },
-  ]);
+  {
+    path: "*",
+    element: <Login />,
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
+  },
+]);
