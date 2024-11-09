@@ -35,3 +35,9 @@ span.meal-section__icon{
     text-align: center;
     margin: 5px;
 }
+.meal {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+}

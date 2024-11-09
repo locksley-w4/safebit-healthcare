@@ -1,12 +1,19 @@
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import { RouterProvider } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { privateRouter, publicRouter } from "./components/router/router";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
+
 
 localStorage.setItem("isAuth", "true");
-localStorage.clear("isAuth");
+// localStorage.clear("isAuth");
 
 function App() {
   let [isAuth, setIsAuth] = useState(false);
@@ -22,7 +29,9 @@ function App() {
 
   return (
     <>
-      <RouterProvider router={isAuth ? privateRouter : publicRouter} />
+      <QueryClientProvider client={queryClient}>
+          <RouterProvider router={isAuth ? privateRouter : publicRouter} />
+      </QueryClientProvider>
     </>
   );
 }
