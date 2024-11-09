@@ -13,7 +13,10 @@ const Dashboard = ({ style, ...props }) => {
               alt="carbohydrates"
             />
           </div>
-          <span>1050 <br/><strong>KCAL</strong></span>
+          <span>
+            1050 <br />
+            <strong>KCAL</strong>
+          </span>
         </div>
         <div className={cl.figures__stat}>
           <div className={cl.figures__stat__pieChart}>
