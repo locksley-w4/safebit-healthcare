@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../context/context";
 
 const EditProfile = () => {
+  const navigate = useNavigate();
+  const {user, updateUser} = useContext(UserContext)
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -19,11 +23,15 @@ const EditProfile = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission here, e.g., send data to a backend
+    // setUser({user, ...formData})
+    // localStorage.setItem("user", JSON.stringify(user))
+    updateUser(formData)
+    navigate("/profile")
     console.log(formData);
   };
 
   return (
-    <div>
+    <div style={{padding: 20}}>
       <h2>Edit Profile</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="fullName">Username:</label>

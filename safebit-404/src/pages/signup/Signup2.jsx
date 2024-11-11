@@ -32,7 +32,7 @@ const SignupPage2 = ({
   };
 
   return (
-    <form onSubmit={(e) => e.preventDefault()}>
+    <form className="signup-form" onSubmit={(e) => e.preventDefault()}>
       <div>
         <label>Height</label>
         <input

@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import SignupPage1 from "./Signup1";
 import SignupPage2 from "./Signup2";
 import "./signup.css";
 import { replace, useNavigate } from "react-router-dom";
+import { AuthContext, UserContext } from "../../context/context";
 const Signup = () => {
   const navigate = useNavigate();
   const [page, setPage] = useState(1);
@@ -98,15 +99,18 @@ const Signup = () => {
     setValidationErrors({});
   };
 
+ const {grantAccess} = useContext(AuthContext)
+ const {updateUser} = useContext(UserContext)
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validatePage2()) {
-      console.log(formData);
-      localStorage.setItem("user", JSON.stringify(formData));
+      // localStorage.setItem("user", JSON.stringify(formData));
+      updateUser(formData)
       navigate("/", {
         replace: true,
       });
-      localStorage.setItem("isAuth", true);
+      grantAccess()
     }
   };
 

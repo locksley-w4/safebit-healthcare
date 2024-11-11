@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Profile.css";
 import profilePic from "../../assets/profile.jpg";
@@ -13,13 +13,17 @@ import carbonNotification from "../../assets/carbon_notification.jpg";
 import notePencil from "../../assets/notepencil.jpg";
 import activity from "../../assets/activity.jpg";
 import qrcode from "../../assets/qrcode.jpg";
+import { useState } from "react";
+import { UserContext } from "../../context/context";
 const Profile = () => {
+  const {user, setUser} = useContext(UserContext);
+
   return (
     <div className="profile">
       <div className="profile_top">
         <div className="profile_picture">
           <img src={profilePic} alt="pfp" />
-          <h3>Cats Green</h3>
+          <h3 style={{textTransform: "capitalize", fontSize: "1.5rem"}}>{user.fullname}</h3>
         </div>
         <div className="profile_stats">
           <div className="stat stat_weight">
@@ -27,7 +31,7 @@ const Profile = () => {
               <h4>
                 Weight <img src={clappingHand} alt="clapping" />
               </h4>
-              <span>64 kg</span>
+              <span>{user.weight} kg</span>
             </div>
           </div>
           <div className="stat stat_height">
@@ -35,7 +39,7 @@ const Profile = () => {
               <h4>
                 Height <img src={fire} alt="fire" />
               </h4>
-              <span>176</span>
+              <span>{user.height}cm</span>
             </div>
           </div>
           <div className="stat stat_age">
@@ -43,7 +47,7 @@ const Profile = () => {
               <h4>
                 Age <img src={magicWand} alt="magicwand" />
               </h4>
-              <span>27</span>
+              <span>{user.age}</span>
             </div>
           </div>
         </div>

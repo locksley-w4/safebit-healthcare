@@ -6,6 +6,7 @@
 .login_top{
     height: 381px;
     position: relative;
+    margin: 0;
 }
 .login_img{
     height: 381px;
@@ -41,7 +42,7 @@
 }
 
 .login_middle{
-    height: auto;
+    background-color: white;
     padding: 10px;
 }
 .login_middle input{
@@ -125,4 +126,16 @@
     color: red;
     margin-top: 5px;
     font-size: 14px;
+}
+.signup-label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.3rem;
+}
+.signup-label .link{
+    margin-right: 7%;
+    font-weight: 600;
+    color: rgb(0, 47, 255);
 }

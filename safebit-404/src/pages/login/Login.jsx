@@ -4,6 +4,7 @@ import envelope from "../../assets/Envelope.jpg";
 import apple from "../../assets/apple.jpg";
 import google from "../../assets/google.jpg";
 import facebook from "../../assets/facebook.jpg";
+import { Link } from "react-router-dom";
 function Login() {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [password, setPassword] = useState("");
@@ -69,6 +70,7 @@ function Login() {
           <button type="submit" className="login_button">
             Log in
           </button>
+          <p className="signup-label">or <Link to="/signup" className="link">Sign up</Link></p>
         </form>
       </div>
       <div className="login_bottom">

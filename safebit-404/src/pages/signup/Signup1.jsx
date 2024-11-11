@@ -8,12 +8,13 @@ const SignupPage1 = ({
 }) => {
   return (
     <form
+    className="signup-form"
       onSubmit={(e) => {
         e.preventDefault();
         nextPage();
       }}
     >
-      <div>
+      <div className="signup-div">
         <label>Full Name:</label>
         <input
           type="text"
@@ -25,7 +26,7 @@ const SignupPage1 = ({
           <p style={{ color: "red" }}>{validationErrors.fullname}</p>
         )}
       </div>
-      <div>
+      <div className="signup-div">
         <label>Age:</label>
         <input
           type="number"
@@ -37,14 +38,14 @@ const SignupPage1 = ({
           <p style={{ color: "red" }}>{validationErrors.age}</p>
         )}
       </div>
-      <div>
+      <div className="signup-div" style={{width: ""}}>
         <label>Gender:</label>
         <select name="gender" value={formData.gender} onChange={handleChange}>
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select>
       </div>
-      <div>
+      <div className="signup-div">
         <label>Email:</label>
         <input
           type="email"
@@ -56,7 +57,7 @@ const SignupPage1 = ({
           <p style={{ color: "red" }}>{validationErrors.email}</p>
         )}
       </div>
-      <div>
+      <div className="signup-div">
         <label>Username:</label>
         <input
           type="text"
@@ -68,7 +69,7 @@ const SignupPage1 = ({
           <p style={{ color: "red" }}>{validationErrors.username}</p>
         )}
       </div>
-      <div>
+      <div className="signup-div">
         <label>Password:</label>
         <input
           type="password"

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./TodaysMeals.css";
 import { useState } from "react";
-import { calcTotalCalories } from "../../utilities/utils";
+import { calcTotalCalories, randInt } from "../../utilities/utils";
 
 const TodaysMeals = ({ meals: _meals }) => {
   // const [breakfast, setBreakfast] = useState(null);
@@ -16,22 +16,26 @@ const TodaysMeals = ({ meals: _meals }) => {
     
     return (
       <section className="meal-section" key={key}>
-        <span className="meal-section__icon">
+        {/* <span className="meal-section__icon">
           <img
             src={require("../../assets/breakfast-icon.jpg")}
             alt="Breakfast icon"
           />
-        </span>
+        </span> */}
         <div className="meal-menu">
-          <h3>Breakfast</h3>
-          {meals[key].map((meal) => (
+          <h3>{key}</h3>
+          {meals[key]?.map((meal) => (
             <div className="meal" key={meal.idMeal}>
               <span className="meal-section__icon">
                 <img src={meal.strMealThumb} alt="Breakfast icon" />
               </span>
+              <span className="meal-section__calories">
+                {randInt(100, 200)} KCAL
+              </span>
               <p>{meal.strMeal}</p>
             </div>
           ))}
+          <p className="total-calories">Total: 350 KCAL</p>
         </div>
       </section>
     );
